@@ -30,7 +30,9 @@ After your account is set-up, give you a few minutes for your password to be upd
 
 > You can type in 'yes' and hit enter to the prompt below, and type in your password after.
 
-![Terminal Locate](ssh_connected.png)
+> I did not have my own screenshot, so below is one from the lab instructions page.
+
+![Terminal Locate](ssh-autho-01.png)
 
 ---
 ### 3. Trying Some Commands
@@ -47,7 +49,7 @@ Some commands you can try out are:
 
 > The current directory is printed, a new directory heimer is created, and the Hello.java file from the Desktop is copied into the new directory.
 
-![terminal_commands](try_linux_cmds.png)
+![terminal_commands](trying-cmds-01.png)
 
 ---
 ### 4. Moving Files with scp
@@ -57,7 +59,7 @@ We do this by the $scp command, followed by the file name and remote server loca
 
 > Below we used the scp command to copy WhereAmI.java from our local client to our remote server.
 
-![Secure_copy](scp_whereami.png)
+![Secure_copy](scp-java.png)
 
 ---
 ### 5. Setting an SSH Key
@@ -68,17 +70,21 @@ The idea behind this is that this program creates two files, a *public key* and 
 The public key is copied to our remote server, and the private key is saved somewhere in our local client. The ssh command that is bound can use the saved files instead of our password. It will help us skip the step of always typing in our passwords. 
 
 > Command to generate ssh-keygen
+>>![ssh-keygen](keygen-01.png)
+We have generated both public and private key pairs.
 
-![ssh-keygen](ssh-keygen.png)
 > Making the directory to copy the public key
+>>![mkdir_ssh](mkdir-ssh.png)
+After ssh into our remote class server, we create a new directory for .ssh
 
-![mkdir_ssh](mkdir_ssh.png)
 > Copying over the public key to remote server from local client
+>>![scp_keygen](scp-keygen.png)
+After logging out of our class cs15lfa22 server, we secure copy over the id_rsa.pub from our local client server, the public key, into our online cs15l private key into our .ssh directory that we created. 
 
-![scp_keygen](scp_keygen.png)
-> Now you are finished- here is an easier log-in attempt without having to type in your password!
+> Now you are finished
+>>![login_wo_pass](ssh-after-keygen.png)
+We can have an easier log-in attempt without having to type in your password!
 
-![login_wo_pass](login_without_pass.png)
 
 ---
 ### 6. Optimizing Remote Running
@@ -90,10 +96,8 @@ There are a few ways to enhance your remote code running experience. Some of tho
 
 * You can also use the up-arrow on your keyboard to bring back your most recent command, without having to type it again. 
 
-> Compared to separately logging in, listing the files, compiling the file, andthen executing the file before exiting in individual commands (5 keystrokes)
+Compared to separately logging in, listing the files, compiling the file, andthen executing the file before exiting in individual commands (34 keystrokes)
 
 > Run it all at once in one keystroke 
-
-![comparing_log_in](less_keystrokes.png)
-
-* Now using the "" quotation marks, you can shorten 5 separate keystorkes to one and save runtime! 
+![comparing_log_in](less-keystrokes.png)
+>>Now using the "" quotation marks, you can shorten keystrokes to one and save runtime! 
